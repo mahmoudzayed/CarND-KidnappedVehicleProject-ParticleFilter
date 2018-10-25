@@ -63,7 +63,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 
 	for (int index = 0; index < num_particles; index++)
 	{
-		if (yaw_rate == 0)
+		if (fabs(yaw_rate) == 0)
 		{
 			particles[index].x = particles[index].x + velocity* delta_t*cos(particles[index].theta) + Guas_x(generator);
 			particles[index].y = particles[index].y + velocity * delta_t*sin(particles[index].theta) + Guas_y(generator);
